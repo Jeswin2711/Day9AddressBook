@@ -14,7 +14,8 @@ public class AddressBookMain extends ContactPerson
             System.out.println("Enter 1 to Add Contact");
             System.out.println("Enter 2 to Edit Contact ");
             System.out.println("Enter 3 to View Contacts");
-            System.out.println("Enter 4 to exit ");
+            System.out.println("Enter 4 to Delete Contact ");
+            System.out.println("Enter 5 to exit ");
             int i = scanner.nextInt();
             switch (i) {
                 case 1:
@@ -29,6 +30,10 @@ public class AddressBookMain extends ContactPerson
                     contactPerson.showAll();
                     break;
                 case 4:
+                    name = scanner.next();
+                    contactPerson.deleteContact(name);
+                    break;
+                case 5:
                     System.exit(0);
                     break;
             }
