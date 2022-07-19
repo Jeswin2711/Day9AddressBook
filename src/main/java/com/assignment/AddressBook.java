@@ -11,6 +11,33 @@ public class AddressBook
     private long phoneNumber;
     private String email;
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public AddressBook(String firstName, String lastName, String address, String city, String state, int zip, long phoneNumber, String email) {
         this.firstName = firstName;
@@ -60,7 +87,7 @@ public class AddressBook
 
     @Override
     public String toString() {
-        return "AddressBook{" +
+        return "AddressBook {" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
