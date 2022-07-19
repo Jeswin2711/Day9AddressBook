@@ -7,4 +7,6 @@ public interface Address
     void editContact(String firstName);
 
     void showAll();
+
+    void deleteContact(String firstName);
 }

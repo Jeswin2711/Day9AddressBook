@@ -91,11 +91,25 @@ public class ContactPerson implements Address
     {
         if(contacts.isEmpty())
         {
-            System.out.println("No Data Found");
+            System.out.println("No Data Found \n ");
         }
         for(AddressBook contact : contacts)
         {
             System.out.println(contact);
+        }
+    }
+
+    @Override
+    public void deleteContact(String firstName)
+    {
+        for (AddressBook contact : contacts)
+        {
+            if(contact.getFirstName().equals(firstName))
+            {
+                contacts.remove(contact);
+                System.out.println(" Contact Deleted Successfully");
+                break;
+            }
         }
     }
 }
