@@ -2,14 +2,17 @@ package com.assignment;
 
 import java.util.Scanner;
 
-public class AddressBookMain extends ContactPerson
+public class AddressBookMain
 {
     public static void main(String[] args)
     {
-        System.out.println("Welcome to Address Book Program");
-        Address contactPerson = new ContactPerson();
+        System.out.println("Welcome to IAddressOperations Book Program");
+        IAddressOperations contactPerson = new ContactPerson();
         Scanner scanner = new Scanner(System.in);
 
+        /*
+        Manual Driven Code for Permitting User to Do some Operation
+         */
         while (true) {
             System.out.println("Enter 1 to Add Contact");
             System.out.println("Enter 2 to Edit Contact ");
@@ -19,21 +22,36 @@ public class AddressBookMain extends ContactPerson
             int i = scanner.nextInt();
             switch (i) {
                 case 1:
+                    /*
+                    Adding Contact
+                     */
                     contactPerson.addContact();
                     break;
                 case 2:
+                    /*
+                    Editing a  Contact
+                     */
                     System.out.println("\n Enter the Name of the Contact ");
                     String name = scanner.next();
                     contactPerson.editContact(name);
                     break;
                 case 3:
+                    /*
+                    Showing All Contact
+                     */
                     contactPerson.showAll();
                     break;
                 case 4:
+                    /*
+                    Deleting a  Contact
+                     */
                     name = scanner.next();
                     contactPerson.deleteContact(name);
                     break;
-                case 5:
+                default:
+                    /*
+                    Exiting from the Program
+                     */
                     System.exit(0);
                     break;
             }

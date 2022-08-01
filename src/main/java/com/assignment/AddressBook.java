@@ -1,7 +1,13 @@
 package com.assignment;
 
+/*
+Encapsulated Class for Address Book
+ */
 public class AddressBook
 {
+    /*
+    Properties of the Class
+     */
     private String firstName;
     private String lastName;
     private String address;
@@ -11,6 +17,10 @@ public class AddressBook
     private long phoneNumber;
     private String email;
 
+
+    /*
+    Getter and Setters to Perform Abstraction
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -85,6 +95,9 @@ public class AddressBook
         return email;
     }
 
+    /*
+    toString method to return Object in a String format
+     */
     @Override
     public String toString() {
         return "AddressBook {" +

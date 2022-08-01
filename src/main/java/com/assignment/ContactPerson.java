@@ -3,10 +3,20 @@ package com.assignment;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ContactPerson implements Address
+/*
+Class Contact Person that implements IAddressOperations Interface to Perform Operations to the List
+ */
+public class ContactPerson implements IAddressOperations
 {
+    /*
+    Contacts List to Store the List of Contacts
+     */
     ArrayList<AddressBook> contacts = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    /*
+    Adding a Person to the List
+     */
+    @Override
     public void addContact()
     {
 
@@ -31,6 +41,9 @@ public class ContactPerson implements Address
         System.out.println("Contact Added : " + contacts);
     }
 
+    /*
+    Editing a Person on the List
+     */
     @Override
     public void editContact(String firstName)
     {
@@ -40,7 +53,7 @@ public class ContactPerson implements Address
             {
                 System.out.println("Enter 1 for FirstName");
                 System.out.println("Enter 2 for LastName");
-                System.out.println("Enter 3 for Address");
+                System.out.println("Enter 3 for IAddressOperations");
                 System.out.println("Enter 4 for City");
                 System.out.println("Enter 5 for State");
                 System.out.println("Enter 6 for Zip");
@@ -58,7 +71,7 @@ public class ContactPerson implements Address
                         contact.setLastName(scanner.next());
                         break;
                     case 3:
-                        System.out.println("Enter Address");
+                        System.out.println("Enter IAddressOperations");
                         contact.setAddress(scanner.next());
                         break;
                     case 4:
@@ -86,6 +99,9 @@ public class ContactPerson implements Address
             }
         }
     }
+    /*
+    Showing All the Contacts
+     */
     @Override
     public void showAll()
     {
@@ -99,17 +115,26 @@ public class ContactPerson implements Address
         }
     }
 
+    /*
+    Deleting a Person from the List
+     */
     @Override
     public void deleteContact(String firstName)
     {
+        boolean flag = false;
         for (AddressBook contact : contacts)
         {
             if(contact.getFirstName().equals(firstName))
             {
                 contacts.remove(contact);
-                System.out.println(" Contact Deleted Successfully");
+                System.out.println("Contact Deleted Successfully");
+                flag = true;
                 break;
             }
+        }
+        if(!flag)
+        {
+            System.out.println("Contacts Not Found");
         }
     }
 }

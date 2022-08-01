@@ -1,6 +1,9 @@
 package com.assignment;
 
-public interface Address
+/*
+IAddressOperations interface that contains the function for the Operation to be Performed
+ */
+public interface IAddressOperations
 {
     void addContact();
 
