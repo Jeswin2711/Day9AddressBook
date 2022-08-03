@@ -17,4 +17,8 @@ public interface IBookOperations
     void showCount();
 
     void sortContacts();
+
+    void sortContactByUserInput();
+
+    void addContactInBook();
 }
