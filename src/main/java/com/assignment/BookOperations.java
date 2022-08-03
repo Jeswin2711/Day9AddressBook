@@ -13,13 +13,14 @@ class BookOperations implements IBookOperations
     /*
     Method to create a Address Book
      */
+
     @Override
     public void createAddressBook()
     {
+        AddressBookOperations contactPerson = new AddressBookOperations();
         System.out.println("Enter a Book name");
         String bookName = scanner.next();
-        AddressBookOperations contactPerson = new AddressBookOperations();
-        book.put(bookName,contactPerson.BookOperations());
+        book.put(bookName,contactPerson.bookOperations());
     }
 
     /*
@@ -184,6 +185,97 @@ class BookOperations implements IBookOperations
             {
                 break;
             }
+        }
+    }
+
+    /*
+    Function to Sort the entries in the table in Alphabetical Order
+     */
+    @Override
+    public void sortContacts()
+    {
+        boolean exit = false;
+        while (true)
+        {
+            System.out.println("Enter 1 to Continue");
+            int input = scanner.nextInt();
+            switch (input)
+            {
+                case 1:
+                    System.out.println("Enter Book Name");
+                    String bookName = scanner.next();
+                    List<User> contacts = book.get(bookName);
+                    /*
+                    Using java Stream , map and Sorted to sort the address book alphabetically
+                     */
+                    List<String> firstNames = contacts.stream().map(a -> a.toString()).sorted().collect(Collectors.toList());
+                    System.out.println(firstNames);
+                    break;
+                default:
+                    exit = false;
+                    break;
+            }
+            if(exit == true)
+            {
+                break;
+            }
+        }
+    }
+    /*
+    sortContactByUserInput function is to Allow the user to sort the Address Book by City, State, or Zip
+     */
+    @Override
+    public void sortContactByUserInput()
+    {
+        boolean exit = false;
+
+        while (true)
+        {
+            System.out.println("Enter 1 to Sort by City");
+            System.out.println("Enter 2 to Sort by State");
+            int input = scanner.nextInt();
+            switch (input)
+            {
+                case 1:
+                    System.out.println("Enter Book Name");
+                    String bookName = scanner.next();
+                    List<User> contacts = book.get(bookName);
+                    Comparator<User> cityCompare = Comparator.comparing(User::getCity);
+                    List<User> sortedPerson = contacts.stream().sorted(cityCompare).collect(Collectors.toList());
+                    System.out.println(" City "+ sortedPerson);
+                    break;
+                case 2:
+                    System.out.println("Enter Book Name");
+                    bookName = scanner.next();
+                    contacts = book.get(bookName);
+                    Comparator<User> stateCompare = Comparator.comparing(User::getState);
+                    sortedPerson = contacts.stream().sorted(stateCompare).collect(Collectors.toList());
+                    List<String> state = contacts.stream().map(a -> a.getState()).sorted().collect(Collectors.toList());
+                    System.out.println(" City "+sortedPerson);
+                    break;
+                default:
+                    exit = true;
+            }
+            if(exit == true)
+            {
+                break;
+            }
+        }
+    }
+    /*
+    addContactInBook function to add a Contact to the Address Book at anytime
+     */
+    @Override
+    public void addContactInBook()
+    {
+        AddressBookOperations contactPerson = new AddressBookOperations();
+        ContactPerson addPerson = new ContactPerson();
+        System.out.println("Enter book name");
+        String bookName = scanner.next();
+        List<User> a = addPerson.addContact();
+        for ( User contact : a)
+        {
+            book.get(bookName).add(contact);
         }
     }
 }

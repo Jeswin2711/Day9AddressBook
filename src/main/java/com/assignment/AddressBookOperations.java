@@ -9,7 +9,7 @@ class AddressBookOperations
     /*
     Book Operations return List of User that are Created for a Instance
      */
-    public List<User> BookOperations()
+    public List<User> bookOperations()
     {
         IContactOperations contactPerson = new ContactPerson();
         Scanner scanner = new Scanner(System.in);

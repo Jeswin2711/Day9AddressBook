@@ -7,18 +7,19 @@ import java.util.Scanner;
 /*
 Class Contact Person that implements IAddressOperations Interface to Perform Operations to the List
  */
-class ContactPerson implements IContactOperations
+public class ContactPerson implements IContactOperations
 {
     /*
     Contacts List to Store the List of Contacts
      */
     List<User> contacts = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    User addressBook;
     /*
     Adding a Person to the List
      */
     @Override
-    public void addContact()
+    public List<User> addContact()
     {
         System.out.println("Enter firstName");
         String firstName = scanner.next();
@@ -77,7 +78,7 @@ class ContactPerson implements IContactOperations
             contacts.add(addressBook);
             System.out.println("Contact Added : " + contacts);
         }
-
+        return contacts;
     }
 
     /*

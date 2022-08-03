@@ -6,7 +6,7 @@ IContactOperations interface that contains the function for the Operation to be 
  */
 public interface IContactOperations
 {
-    void addContact();
+    List<User> addContact();
 
     void editContact(String firstName);
 
