@@ -186,4 +186,38 @@ class BookOperations implements IBookOperations
             }
         }
     }
+
+    /*
+    Function to Sort the entries in the table in Alphabetical Order
+     */
+    @Override
+    public void sortContacts()
+    {
+        boolean exit = false;
+        while (true)
+        {
+            System.out.println("Enter 1 to Continue");
+            int input = scanner.nextInt();
+            switch (input)
+            {
+                case 1:
+                    System.out.println("Enter Book Name");
+                    String bookName = scanner.next();
+                    List<User> contacts = book.get(bookName);
+                    /*
+                    Using java Stream , map and Sorted to sort the address book alphabetically
+                     */
+                    List<String> firstNames = contacts.stream().map(a -> a.toString()).sorted().collect(Collectors.toList());
+                    System.out.println(firstNames);
+                    break;
+                default:
+                    exit = false;
+                    break;
+            }
+            if(exit == true)
+            {
+                break;
+            }
+        }
+    }
 }

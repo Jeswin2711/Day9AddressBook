@@ -15,4 +15,6 @@ public interface IBookOperations
     void viewPerson();
 
     void showCount();
+
+    void sortContacts();
 }

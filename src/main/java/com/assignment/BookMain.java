@@ -20,6 +20,8 @@ public class BookMain
             System.out.println("Enter 2 to View Book");
             System.out.println("Enter 3 to Search in Address Book");
             System.out.println("Enter 4 to View a Person");
+            System.out.println("Enter 5 to Show Count");
+            System.out.println("Enter 6 to Sort the Book");
             int input = scanner.nextInt();
             switch (input)
             {
@@ -36,6 +38,8 @@ public class BookMain
                     bookOperations.viewPerson();
                 case 5:
                     bookOperations.showCount();
+                case 6:
+                    bookOperations.sortContacts();
                 default:
                     System.exit(0);
             }
