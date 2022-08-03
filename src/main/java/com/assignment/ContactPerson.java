@@ -1,12 +1,23 @@
 package com.assignment;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class ContactPerson implements Address
+/*
+Class Contact Person that implements IAddressOperations Interface to Perform Operations to the List
+ */
+public class ContactPerson implements IContactOperations
 {
-    ArrayList<AddressBook> contacts = new ArrayList<>();
+    /*
+    Contacts List to Store the List of Contacts
+     */
+    List<User> contacts = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    /*
+    Adding a Person to the List
+     */
+    @Override
     public void addContact()
     {
 
@@ -26,21 +37,24 @@ public class ContactPerson implements Address
         long phoneNumber = scanner.nextLong();
         System.out.println("Enter email");
         String email = scanner.next();
-        AddressBook addressBook = new AddressBook(firstName,lastName,address,city,state,zip,phoneNumber,email);
+        User addressBook = new User(firstName,lastName,address,city,state,zip,phoneNumber,email);
         contacts.add(addressBook);
         System.out.println("Contact Added : " + contacts);
     }
 
+    /*
+    Editing a Person on the List
+     */
     @Override
     public void editContact(String firstName)
     {
-        for (AddressBook contact : contacts)
+        for (User contact : contacts)
         {
             if(contact.getFirstName().equals(firstName))
             {
                 System.out.println("Enter 1 for FirstName");
                 System.out.println("Enter 2 for LastName");
-                System.out.println("Enter 3 for Address");
+                System.out.println("Enter 3 for IAddressOperations");
                 System.out.println("Enter 4 for City");
                 System.out.println("Enter 5 for State");
                 System.out.println("Enter 6 for Zip");
@@ -58,7 +72,7 @@ public class ContactPerson implements Address
                         contact.setLastName(scanner.next());
                         break;
                     case 3:
-                        System.out.println("Enter Address");
+                        System.out.println("Enter IAddressOperations");
                         contact.setAddress(scanner.next());
                         break;
                     case 4:
@@ -86,6 +100,9 @@ public class ContactPerson implements Address
             }
         }
     }
+    /*
+    Showing All the Contacts
+     */
     @Override
     public void showAll()
     {
@@ -93,23 +110,39 @@ public class ContactPerson implements Address
         {
             System.out.println("No Data Found \n ");
         }
-        for(AddressBook contact : contacts)
+        for(User contact : contacts)
         {
             System.out.println(contact);
         }
     }
 
+    /*
+    Deleting a Person from the List
+     */
     @Override
     public void deleteContact(String firstName)
     {
-        for (AddressBook contact : contacts)
+        boolean flag = false;
+        for (User contact : contacts)
         {
             if(contact.getFirstName().equals(firstName))
             {
                 contacts.remove(contact);
-                System.out.println(" Contact Deleted Successfully");
+                System.out.println("Contact Deleted Successfully");
+                flag = true;
                 break;
             }
         }
+        if(!flag)
+        {
+            System.out.println("Contacts Not Found");
+        }
     }
+
+    @Override
+    public List<User> contactList()
+    {
+        return contacts;
+    }
+
 }
