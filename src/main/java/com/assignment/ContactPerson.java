@@ -20,26 +20,64 @@ public class ContactPerson implements IContactOperations
     @Override
     public void addContact()
     {
-
         System.out.println("Enter firstName");
         String firstName = scanner.next();
-        System.out.println("Enter lastName");
-        String lastName = scanner.next();
-        System.out.println("Enter address");
-        String address = scanner.next();
-        System.out.println("Enter city");
-        String city = scanner.next();
-        System.out.println("Enter State");
-        String state = scanner.next();
-        System.out.println("Enter zip");
-        int zip = scanner.nextInt();
-        System.out.println("Enter phoneNumber");
-        long phoneNumber = scanner.nextLong();
-        System.out.println("Enter email");
-        String email = scanner.next();
-        User addressBook = new User(firstName,lastName,address,city,state,zip,phoneNumber,email);
-        contacts.add(addressBook);
-        System.out.println("Contact Added : " + contacts);
+        /*
+        Checking the List is not Empty if not checks the name entered already in the List
+         */
+        if(!contacts.isEmpty())
+        {
+            for(User contact : contacts)
+            {
+                if ( contact.getFirstName().equals(firstName))
+                {
+                    System.out.println("User Already Present");
+                    break;
+                }
+                else
+                {
+                    System.out.println("Enter lastName");
+                    String lastName = scanner.next();
+                    System.out.println("Enter address");
+                    String address = scanner.next();
+                    System.out.println("Enter city");
+                    String city = scanner.next();
+                    System.out.println("Enter State");
+                    String state = scanner.next();
+                    System.out.println("Enter zip");
+                    int zip = scanner.nextInt();
+                    System.out.println("Enter phoneNumber");
+                    long phoneNumber = scanner.nextLong();
+                    System.out.println("Enter email");
+                    String email = scanner.next();
+                    User addressBook = new User(firstName,lastName,address,city,state,zip,phoneNumber,email);
+                    contacts.add(addressBook);
+                    System.out.println("Contact Added : " + contacts);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            System.out.println("Enter lastName");
+            String lastName = scanner.next();
+            System.out.println("Enter address");
+            String address = scanner.next();
+            System.out.println("Enter city");
+            String city = scanner.next();
+            System.out.println("Enter State");
+            String state = scanner.next();
+            System.out.println("Enter zip");
+            int zip = scanner.nextInt();
+            System.out.println("Enter phoneNumber");
+            long phoneNumber = scanner.nextLong();
+            System.out.println("Enter email");
+            String email = scanner.next();
+            User addressBook = new User(firstName,lastName,address,city,state,zip,phoneNumber,email);
+            contacts.add(addressBook);
+            System.out.println("Contact Added : " + contacts);
+        }
+
     }
 
     /*
