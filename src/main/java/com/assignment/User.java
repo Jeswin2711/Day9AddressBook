@@ -3,7 +3,7 @@ package com.assignment;
 /*
 Encapsulated Class for Address Book
  */
-public class AddressBook
+public class User
 {
     /*
     Properties of the Class
@@ -49,7 +49,7 @@ public class AddressBook
         this.email = email;
     }
 
-    public AddressBook(String firstName, String lastName, String address, String city, String state, int zip, long phoneNumber, String email) {
+    public User(String firstName, String lastName, String address, String city, String state, int zip, long phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -100,7 +100,7 @@ public class AddressBook
      */
     @Override
     public String toString() {
-        return "AddressBook {" +
+        return "Contact {" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +

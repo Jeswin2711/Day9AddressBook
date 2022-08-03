@@ -1,15 +1,20 @@
 package com.assignment;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class AddressBookMain
+public class AddressBookOperations
 {
-    public static void main(String[] args)
+    /*
+    Book Operations return List of User that are Created for a Instance
+     */
+    public List<User> BookOperations()
     {
-        System.out.println("Welcome to IAddressOperations Book Program");
-        IAddressOperations contactPerson = new ContactPerson();
+        IContactOperations contactPerson = new ContactPerson();
         Scanner scanner = new Scanner(System.in);
-
+        List<User> bookDetails = new ArrayList<>();
+        boolean exit = false;
         /*
         Manual Driven Code for Permitting User to Do some Operation
          */
@@ -48,13 +53,20 @@ public class AddressBookMain
                     name = scanner.next();
                     contactPerson.deleteContact(name);
                     break;
+                case 5:
+                    bookDetails = contactPerson.contactList();
                 default:
+                    exit = true;
                     /*
                     Exiting from the Program
                      */
-                    System.exit(0);
                     break;
             }
+            if(exit == true)
+            {
+                break;
+            }
         }
+        return bookDetails;
     }
 }

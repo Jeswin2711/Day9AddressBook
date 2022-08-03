@@ -1,17 +1,18 @@
 package com.assignment;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /*
 Class Contact Person that implements IAddressOperations Interface to Perform Operations to the List
  */
-public class ContactPerson implements IAddressOperations
+public class ContactPerson implements IContactOperations
 {
     /*
     Contacts List to Store the List of Contacts
      */
-    ArrayList<AddressBook> contacts = new ArrayList<>();
+    List<User> contacts = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     /*
     Adding a Person to the List
@@ -36,7 +37,7 @@ public class ContactPerson implements IAddressOperations
         long phoneNumber = scanner.nextLong();
         System.out.println("Enter email");
         String email = scanner.next();
-        AddressBook addressBook = new AddressBook(firstName,lastName,address,city,state,zip,phoneNumber,email);
+        User addressBook = new User(firstName,lastName,address,city,state,zip,phoneNumber,email);
         contacts.add(addressBook);
         System.out.println("Contact Added : " + contacts);
     }
@@ -47,7 +48,7 @@ public class ContactPerson implements IAddressOperations
     @Override
     public void editContact(String firstName)
     {
-        for (AddressBook contact : contacts)
+        for (User contact : contacts)
         {
             if(contact.getFirstName().equals(firstName))
             {
@@ -109,7 +110,7 @@ public class ContactPerson implements IAddressOperations
         {
             System.out.println("No Data Found \n ");
         }
-        for(AddressBook contact : contacts)
+        for(User contact : contacts)
         {
             System.out.println(contact);
         }
@@ -122,7 +123,7 @@ public class ContactPerson implements IAddressOperations
     public void deleteContact(String firstName)
     {
         boolean flag = false;
-        for (AddressBook contact : contacts)
+        for (User contact : contacts)
         {
             if(contact.getFirstName().equals(firstName))
             {
@@ -137,4 +138,11 @@ public class ContactPerson implements IAddressOperations
             System.out.println("Contacts Not Found");
         }
     }
+
+    @Override
+    public List<User> contactList()
+    {
+        return contacts;
+    }
+
 }
