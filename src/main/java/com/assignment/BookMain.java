@@ -2,7 +2,6 @@ package com.assignment;
 
 import java.util.Scanner;
 
-
 /*
 Main Function to Call the Respective Function for the Address Book Operations
  */
@@ -35,6 +34,8 @@ public class BookMain
                     break;
                 case 4:
                     bookOperations.viewPerson();
+                case 5:
+                    bookOperations.showCount();
                 default:
                     System.exit(0);
             }

@@ -3,6 +3,7 @@ package com.assignment;
 /*
 IBookOperations interface that contains the function for the Book Operation to be Performed
  */
+
 public interface IBookOperations
 {
     void createAddressBook();
@@ -12,4 +13,6 @@ public interface IBookOperations
     void search();
 
     void viewPerson();
+
+    void showCount();
 }

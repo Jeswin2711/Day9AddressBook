@@ -1,7 +1,6 @@
 package com.assignment;
 
 import java.util.List;
-
 /*
 IContactOperations interface that contains the function for the Operation to be Performed
  */
