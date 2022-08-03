@@ -176,11 +176,12 @@ public class ContactPerson implements IContactOperations
             System.out.println("Contacts Not Found");
         }
     }
-
+    /*
+    function contactList to return the Contacts
+     */
     @Override
     public List<User> contactList()
     {
         return contacts;
     }
-
 }
