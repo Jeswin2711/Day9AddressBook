@@ -7,7 +7,7 @@ import java.util.Scanner;
 /*
 Class Contact Person that implements IAddressOperations Interface to Perform Operations to the List
  */
-public class ContactPerson implements IContactOperations
+class ContactPerson implements IContactOperations
 {
     /*
     Contacts List to Store the List of Contacts

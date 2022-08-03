@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AddressBookOperations
+class AddressBookOperations
 {
     /*
     Book Operations return List of User that are Created for a Instance

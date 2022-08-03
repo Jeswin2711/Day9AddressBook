@@ -1,9 +1,8 @@
 package com.assignment;
-
 /*
 Encapsulated Class for Address Book
  */
-public class User
+class User
 {
     /*
     Properties of the Class
@@ -16,7 +15,6 @@ public class User
     private int zip;
     private long phoneNumber;
     private String email;
-
 
     /*
     Getter and Setters to Perform Abstraction
