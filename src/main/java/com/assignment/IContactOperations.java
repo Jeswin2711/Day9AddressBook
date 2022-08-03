@@ -3,7 +3,7 @@ package com.assignment;
 import java.util.List;
 
 /*
-IAddressOperations interface that contains the function for the Operation to be Performed
+IContactOperations interface that contains the function for the Operation to be Performed
  */
 public interface IContactOperations
 {

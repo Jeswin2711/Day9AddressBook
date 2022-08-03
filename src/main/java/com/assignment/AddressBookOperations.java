@@ -23,7 +23,8 @@ public class AddressBookOperations
             System.out.println("Enter 2 to Edit Contact ");
             System.out.println("Enter 3 to View Contacts");
             System.out.println("Enter 4 to Delete Contact ");
-            System.out.println("Enter 5 to exit ");
+            System.out.println("Enter 5 to Search");
+            System.out.println("Enter 6 to exit ");
             int i = scanner.nextInt();
             switch (i) {
                 case 1:
@@ -53,15 +54,18 @@ public class AddressBookOperations
                     name = scanner.next();
                     contactPerson.deleteContact(name);
                     break;
-                case 5:
-                    bookDetails = contactPerson.contactList();
                 default:
                     exit = true;
                     /*
                     Exiting from the Program
                      */
                     break;
+
             }
+            /*
+            getting the contacts
+             */
+            bookDetails = contactPerson.contactList();
             if(exit == true)
             {
                 break;

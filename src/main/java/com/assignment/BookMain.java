@@ -19,6 +19,8 @@ public class BookMain
         {
             System.out.println("Enter 1 to Add Address Book");
             System.out.println("Enter 2 to View Book");
+            System.out.println("Enter 3 to Search in Address Book");
+            System.out.println("Enter 4 to View a Person");
             int input = scanner.nextInt();
             switch (input)
             {
@@ -28,6 +30,11 @@ public class BookMain
                 case 2:
                     bookOperations.showAddressBook();
                     break;
+                case 3:
+                    bookOperations.search();
+                    break;
+                case 4:
+                    bookOperations.viewPerson();
                 default:
                     System.exit(0);
             }
