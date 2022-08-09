@@ -1,7 +1,6 @@
 package com.assignment;
 
 import java.util.Scanner;
-
 /*
 Main Function to Call the Respective Function for the Address Book Operations
  */
@@ -9,7 +8,7 @@ public class BookMain
 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        BookOperations bookOperations = new BookOperations();
+        IBookOperations bookOperations = new BookOperations();
         /*
         Manual Driven code to Prompt the User to Create a Address Book
         or View Book items
@@ -24,6 +23,7 @@ public class BookMain
             System.out.println("Enter 6 to Sort the Book");
             System.out.println("Enter 7 to Sort the Book By City or State or Zip");
             System.out.println("Enter 8 to Add a Person into a Address Book");
+            System.out.println("Enter 9 to Delete a Person into a Address Book");
             int input = scanner.nextInt();
             switch (input)
             {
@@ -50,6 +50,9 @@ public class BookMain
                     break;
                 case 8:
                     bookOperations.addContactInBook();
+                    break;
+                case 9:
+                    bookOperations.deleteContact();
                     break;
                 default:
                     System.exit(0);

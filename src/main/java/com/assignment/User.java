@@ -12,7 +12,7 @@ class User
     private String address;
     private String city;
     private String state;
-    private int zip;
+    private String zip;
     private long phoneNumber;
     private String email;
 
@@ -35,7 +35,7 @@ class User
         this.city = city;
     }
 
-    public void setZip(int zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
@@ -47,7 +47,7 @@ class User
         this.email = email;
     }
 
-    public User(String firstName, String lastName, String address, String city, String state, int zip, long phoneNumber, String email) {
+    public User(String firstName, String lastName, String address, String city, String state, String zip, long phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -82,7 +82,7 @@ class User
         this.state = state;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
     public long getPhoneNumber() {

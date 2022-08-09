@@ -46,7 +46,7 @@ public class ContactPerson implements IContactOperations
                     System.out.println("Enter State");
                     String state = scanner.next();
                     System.out.println("Enter zip");
-                    int zip = scanner.nextInt();
+                    String zip = scanner.next();
                     System.out.println("Enter phoneNumber");
                     long phoneNumber = scanner.nextLong();
                     System.out.println("Enter email");
@@ -69,7 +69,7 @@ public class ContactPerson implements IContactOperations
             System.out.println("Enter State");
             String state = scanner.next();
             System.out.println("Enter zip");
-            int zip = scanner.nextInt();
+            String zip = scanner.next();
             System.out.println("Enter phoneNumber");
             long phoneNumber = scanner.nextLong();
             System.out.println("Enter email");
@@ -124,7 +124,7 @@ public class ContactPerson implements IContactOperations
                         break;
                     case 6:
                         System.out.println("Enter Zip");
-                        contact.setZip(scanner.nextInt());
+                        contact.setZip(scanner.next());
                         break;
                     case 7:
                         System.out.println("Enter Phone Number");

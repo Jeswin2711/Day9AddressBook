@@ -23,6 +23,31 @@ class BookOperations implements IBookOperations
         book.put(bookName,contactPerson.bookOperations());
     }
 
+    @Override
+    public void deleteContact()
+    {
+        System.out.println("Enter the book name");
+        String bookName = scanner.next();
+        List<User> list = book.get(bookName);
+        System.out.println();
+        System.out.println("Enter the First name");
+        String firstName = scanner.next();
+        boolean flag = false;
+        for (User contact : list)
+        {
+            if(contact.getFirstName().equals(firstName))
+            {
+                list.remove(contact);
+                System.out.println("Contact Deleted Successfully");
+                flag = true;
+                break;
+            }
+        }
+        if(!flag)
+        {
+            System.out.println("Contacts Not Found");
+        }
+    }
     /*
     Method to Show a Address Book
      */
@@ -53,7 +78,6 @@ class BookOperations implements IBookOperations
         List<User> nameOfContact = contacts.stream().filter(a -> a.getCity().equals(city)).collect(Collectors.toList());
         /*
         Advanced Forloop to loop through AddressBook
-
          */
         for(User contact : nameOfContact)
         {
@@ -233,6 +257,7 @@ class BookOperations implements IBookOperations
         {
             System.out.println("Enter 1 to Sort by City");
             System.out.println("Enter 2 to Sort by State");
+            System.out.println("Enter 3 to Sort by Zip");
             int input = scanner.nextInt();
             switch (input)
             {
@@ -252,6 +277,15 @@ class BookOperations implements IBookOperations
                     sortedPerson = contacts.stream().sorted(stateCompare).collect(Collectors.toList());
                     List<String> state = contacts.stream().map(a -> a.getState()).sorted().collect(Collectors.toList());
                     System.out.println(" City "+sortedPerson);
+                    break;
+                case 3:
+                    System.out.println("Enter Book Name");
+                    bookName = scanner.next();
+                    contacts = book.get(bookName);
+                    Comparator<User> zipCompare = Comparator.comparing(User::getZip);
+                    sortedPerson = contacts.stream().sorted(zipCompare).collect(Collectors.toList());
+                    List<String> zip = contacts.stream().map(a -> a.getZip()).sorted().collect(Collectors.toList());
+                    System.out.println(" Zip "+zip);
                     break;
                 default:
                     exit = true;
